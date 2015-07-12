@@ -3,6 +3,8 @@ package net.burngames.lp.types;
 import net.burngames.lp.types.tasks.DoubleTask;
 
 /**
+ * Represents a Promise that requires 2 arguments
+ *
  * @author PaulBGD
  */
 public class DoublePromise<A, B> implements PromiseInterface {

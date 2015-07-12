@@ -3,6 +3,8 @@ package net.burngames.lp.types;
 import net.burngames.lp.types.tasks.EmptyTask;
 
 /**
+ * Represents a promise that requires no arguments
+ *
  * @author PaulBGD
  */
 public class EmptyPromise implements PromiseInterface {

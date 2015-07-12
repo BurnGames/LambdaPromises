@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.function.Consumer;
 
 /**
+ * Represents a promise that can be ran either Async or Sync.
+ *
  * @author PaulBGD
  */
 public class Promise {

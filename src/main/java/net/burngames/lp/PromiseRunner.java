@@ -7,6 +7,8 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 /**
+ * A separate object for running Promises
+ *
  * @author PaulBGD
  */
 public class PromiseRunner {

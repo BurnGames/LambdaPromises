@@ -3,6 +3,8 @@ package net.burngames.lp.types;
 import net.burngames.lp.types.tasks.TripleTask;
 
 /**
+ * Represents a Promise that requires 3 arguments
+ *
  * @author PaulBGD
  */
 public class TriplePromise<A, B, C> implements PromiseInterface {

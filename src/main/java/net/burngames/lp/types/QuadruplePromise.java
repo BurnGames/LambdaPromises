@@ -3,6 +3,8 @@ package net.burngames.lp.types;
 import net.burngames.lp.types.tasks.QuadrupleTask;
 
 /**
+ * Represents a Promise that requires 4 arguments
+ *
  * @author PaulBGD
  */
 public class QuadruplePromise<A, B, C, D> implements PromiseInterface {

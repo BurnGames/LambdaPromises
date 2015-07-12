@@ -3,6 +3,8 @@ package net.burngames.lp.types;
 import net.burngames.lp.types.tasks.SingleTask;
 
 /**
+ * Represents a Promise that requires a single argument
+ *
  * @author PaulBGD
  */
 public class SinglePromise<A> implements PromiseInterface {

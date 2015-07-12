@@ -1,6 +1,8 @@
 package net.burngames.lp.types.tasks;
 
 /**
+ * Represents a task that accept 7 arguments and returns an object
+ *
  * @author PaulBGD
  */
 public abstract class SeptupleTask<T, U, V, W, X, Y, Z> {
