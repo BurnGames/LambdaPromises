@@ -1,5 +1,6 @@
 package net.burngames.lp;
 
+import net.burngames.lp.types.DelayedPromise;
 import net.burngames.lp.types.PromiseInterface;
 import net.burngames.lp.types.tasks.TaskType;
 
@@ -51,15 +52,31 @@ public class PromiseRunner {
     }
 
     private void handle(PromiseInterface promise) {
-        Object complete;
-        try {
-            complete = promise.complete(this.previous);
-        } catch (Throwable throwable) {
-            if (this.promise.exception != null) {
-                this.promise.exception.accept(throwable);
+        if (promise instanceof DelayedPromise) {
+            ((DelayedPromise) promise).complete((complete, throwable) -> {
+                if (throwable != null) {
+                    if (this.promise.exception != null) {
+                        this.promise.exception.accept(throwable);
+                    }
+                    return;
+                }
+                handleResponse(complete);
+            });
+        } else {
+            Object complete;
+            try {
+                complete = promise.complete(this.previous);
+            } catch (Throwable throwable) {
+                if (this.promise.exception != null) {
+                    this.promise.exception.accept(throwable);
+                }
+                return;
             }
-            return;
+            handleResponse(complete);
         }
+    }
+
+    private void handleResponse(Object complete) {
         if (complete instanceof PromiseInterface) {
             this.promise.dynamic.add((PromiseInterface) complete);
         } else if (complete instanceof Object[]) {
